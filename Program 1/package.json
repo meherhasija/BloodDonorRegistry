@@ -1,0 +1,21 @@
+{
+  "name": "program1-blood-donor-registry",
+  "version": "1.0.0",
+  "description": "Blood Donor Registry System using HTML, CSS, Vanilla JS, Fetch API and JSON Server",
+  "main": "script.js",
+  "scripts": {
+    "server": "json-server --watch db.json --port 3000",
+    "start": "json-server --watch db.json --port 3000"
+  },
+  "keywords": [
+    "blood-donor-registry",
+    "json-server",
+    "fetch-api",
+    "full-stack-development"
+  ],
+  "author": "Student",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.4"
+  }
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "101",
+    "fullName": "Aarav Sharma",
+    "age": 28,
+    "gender": "Male",
+    "bloodGroup": "O+",
+    "phoneNumber": "9876543210",
+    "city": "Mumbai",
+    "availabilityStatus": "Available"
+  },
+  {
+    "id": "102",
+    "fullName": "Priya Patel",
+    "age": 24,
+    "gender": "Female",
+    "bloodGroup": "A+",
+    "phoneNumber": "9123456780",
+    "city": "Ahmedabad",
+    "availabilityStatus": "Available"
+  },
+  {
+    "id": "103",
+    "fullName": "Rahul Verma",
+    "age": 32,
+    "gender": "Male",
+    "bloodGroup": "B-",
+    "phoneNumber": "9988776655",
+    "city": "Pune",
+    "availabilityStatus": "Unavailable"
+  }
+]

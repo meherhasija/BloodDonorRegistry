@@ -1,0 +1,54 @@
+{
+  "donors": [
+    {
+      "id": 1,
+      "fullName": "Rahul Sharma",
+      "age": 28,
+      "gender": "Male",
+      "bloodGroup": "O+",
+      "phone": "9876543210",
+      "city": "Bengaluru",
+      "isAvailable": true
+    },
+    {
+      "id": 3,
+      "fullName": "Amit Patel",
+      "age": 35,
+      "gender": "Male",
+      "bloodGroup": "A-",
+      "phone": "9898989898",
+      "city": "Mangaluru",
+      "isAvailable": false
+    },
+    {
+      "id": 4,
+      "fullName": "Sneha Kulkarni",
+      "age": 22,
+      "gender": "Female",
+      "bloodGroup": "AB+",
+      "phone": "9765432109",
+      "city": "Hubballi",
+      "isAvailable": true
+    },
+    {
+      "id": 5,
+      "fullName": "Vikram Singh",
+      "age": 42,
+      "gender": "Male",
+      "bloodGroup": "O-",
+      "phone": "9654321870",
+      "city": "Bengaluru",
+      "isAvailable": false
+    },
+    {
+      "fullName": "Meher Hasija",
+      "age": 20,
+      "gender": "Female",
+      "bloodGroup": "B+",
+      "phone": "8828635008",
+      "city": "Mumbai",
+      "isAvailable": true,
+      "id": 6
+    }
+  ]
+}

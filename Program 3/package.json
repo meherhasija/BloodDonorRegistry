@@ -1,0 +1,21 @@
+{
+  "name": "blood-donor-registry-program-3",
+  "version": "1.0.0",
+  "description": "Blood Donor Registry System using Node.js Core Modules (fs, path, http, events)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "nodejs",
+    "core-modules",
+    "http",
+    "fs",
+    "path",
+    "events",
+    "blood-donor-registry"
+  ],
+  "author": "",
+  "license": "ISC"
+}

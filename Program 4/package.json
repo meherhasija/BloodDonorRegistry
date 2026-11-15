@@ -1,0 +1,28 @@
+{
+  "name": "blood-donor-registry-program-4",
+  "version": "1.0.0",
+  "description": "Blood Donor Registry REST API with Express.js, JWT Authentication, and bcrypt",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "blood-donor-registry",
+    "express",
+    "jwt",
+    "bcrypt",
+    "rest-api",
+    "crud"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3"
+  }
+}

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blood Donor Registry System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Application Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <!-- SVG Blood Drop Icon -->
+        <svg class="drop-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+        </svg>
+        <div>
+          <h1>LifeFlow Donor Registry</h1>
+          <p class="tagline">Blood Donor Management System &bull; Save Lives, Donate Blood</p>
+        </div>
+      </div>
+      <div class="emergency-badge">
+        <span>Emergency 24x7 Helpline: <strong>108 / 104</strong></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-container">
+
+    <!-- Global Alert / Notification Box -->
+    <div id="alert-box" class="alert hidden" role="alert"></div>
+
+    <!-- Quick Stats Summary Row -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number" id="stat-total">0</div>
+        <div class="stat-label">Total Donors</div>
+      </div>
+      <div class="stat-card stat-available">
+        <div class="stat-number" id="stat-available">0</div>
+        <div class="stat-label">Available Now</div>
+      </div>
+      <div class="stat-card stat-unavailable">
+        <div class="stat-number" id="stat-unavailable">0</div>
+        <div class="stat-label">Currently Unavailable</div>
+      </div>
+    </section>
+
+    <!-- Two Column Dashboard Layout -->
+    <div class="content-grid">
+
+      <!-- LEFT COLUMN: Donor Registration / Edit Form -->
+      <section class="card form-card">
+        <div class="card-header">
+          <h2 id="form-heading">Register New Donor</h2>
+          <p class="card-subtitle">Fill in all details accurately to register</p>
+        </div>
+
+        <form id="donor-form" novalidate>
+          <!-- Hidden input for donor ID when editing -->
+          <input type="hidden" id="donor-id" value="">
+
+          <!-- Full Name -->
+          <div class="form-group">
+            <label for="full-name">Full Name <span class="required">*</span></label>
+            <input 
+              type="text" 
+              id="full-name" 
+              name="fullName" 
+              placeholder="e.g. Rahul Sharma" 
+              autocomplete="name"
+            >
+            <span class="error-message" id="error-fullName"></span>
+          </div>
+
+          <!-- Age and Gender Row -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="age">Age (18 - 65) <span class="required">*</span></label>
+              <input 
+                type="number" 
+                id="age" 
+                name="age" 
+                min="18" 
+                max="65" 
+                placeholder="e.g. 25"
+              >
+              <span class="error-message" id="error-age"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="gender">Gender <span class="required">*</span></label>
+              <select id="gender" name="gender">
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+              <span class="error-message" id="error-gender"></span>
+            </div>
+          </div>
+
+          <!-- Blood Group and Phone Number Row -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="blood-group">Blood Group <span class="required">*</span></label>
+              <select id="blood-group" name="bloodGroup">
+                <option value="">Select Group</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+              </select>
+              <span class="error-message" id="error-bloodGroup"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number <span class="required">*</span></label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                placeholder="10-digit mobile number" 
+                maxlength="10"
+              >
+              <span class="error-message" id="error-phone"></span>
+            </div>
+          </div>
+
+          <!-- City -->
+          <div class="form-group">
+            <label for="city">City <span class="required">*</span></label>
+            <input 
+              type="text" 
+              id="city" 
+              name="city" 
+              placeholder="e.g. Bengaluru"
+            >
+            <span class="error-message" id="error-city"></span>
+          </div>
+
+          <!-- Availability Status -->
+          <div class="form-group">
+            <label for="availability">Availability Status <span class="required">*</span></label>
+            <select id="availability" name="isAvailable">
+              <option value="true">Available to Donate</option>
+              <option value="false">Currently Unavailable</option>
+            </select>
+            <span class="error-message" id="error-isAvailable"></span>
+          </div>
+
+          <!-- Form Action Buttons -->
+          <div class="form-actions">
+            <button type="submit" id="submit-btn" class="btn btn-primary">
+              <span id="submit-btn-text">Register Donor</span>
+            </button>
+            <button type="button" id="cancel-btn" class="btn btn-secondary hidden">
+              Cancel Edit
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- RIGHT COLUMN: Donor Registry Table, Search & Filters -->
+      <section class="card table-card">
+        <div class="card-header">
+          <h2>Registered Donors</h2>
+          <p class="card-subtitle">Search, filter, edit or manage registered blood donors</p>
+        </div>
+
+        <!-- Search and Filter Toolbar -->
+        <div class="filter-toolbar">
+          <div class="filter-group filter-search">
+            <label for="search-input">Search Donor</label>
+            <input 
+              type="text" 
+              id="search-input" 
+              placeholder="Search by donor name..." 
+              autocomplete="off"
+            >
+          </div>
+
+          <div class="filter-group">
+            <label for="filter-blood-group">Blood Group</label>
+            <select id="filter-blood-group">
+              <option value="ALL">All Groups</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="filter-city">City</label>
+            <input 
+              type="text" 
+              id="filter-city" 
+              placeholder="Filter by city..."
+            >
+          </div>
+
+          <div class="filter-actions">
+            <button type="button" id="reset-filter-btn" class="btn btn-outline" title="Clear all filters">
+              Reset Filters
+            </button>
+          </div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loading-spinner" class="spinner-wrapper hidden">
+          <div class="spinner"></div>
+          <p>Connecting to JSON Server and fetching donors...</p>
+        </div>
+
+        <!-- Donors Table -->
+        <div class="table-responsive">
+          <table class="donors-table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Donor Name</th>
+                <th scope="col">Blood Group</th>
+                <th scope="col">Age / Gender</th>
+                <th scope="col">Contact</th>
+                <th scope="col">City</th>
+                <th scope="col">Status</th>
+                <th scope="col" class="text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="donors-tbody">
+              <!-- Dynamically populated rows via script.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Empty State Notice -->
+        <div id="empty-state" class="empty-state hidden">
+          <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <p class="empty-title">No Donors Found</p>
+          <p class="empty-subtitle">No records match your search or filter criteria. Try adjusting filters or registering a donor.</p>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <p>Full Stack Development Practical Assignment &bull; Program 1: Blood Donor Registry System</p>
+    <p class="footer-sub">Built with HTML5, CSS3, Vanilla JavaScript, Fetch API & JSON Server</p>
+  </footer>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>

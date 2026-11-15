@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "username": "admin",
+    "email": "admin@bloodregistry.org",
+    "password": "$2b$10$.P0tjooqR.k1Jo1HoTZZr.pjYUibAfIfZZEttwqQJR3r56ter9FJy",
+    "fullName": "System Administrator",
+    "role": "admin",
+    "createdAt": "2026-11-15T10:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "username": "user_1794738768691",
+    "email": "user_1794738768691@example.com",
+    "password": "$2b$10$/mbhw9QVXpKt32b/Fhh/mejY44tUQ2M/Kvt2c354sTaRyZswtHP5m",
+    "fullName": "Test Blood Volunteer",
+    "role": "user",
+    "createdAt": "2026-11-15T10:32:48.899Z"
+  }
+]
